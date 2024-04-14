@@ -1,14 +1,14 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/august-water-417802/my-docker-repo/df-tmpl-image:latest', '.']
-  id: 'Build Docker Image'
+#- name: 'gcr.io/cloud-builders/docker'
+#  args: ['build', '-t', 'us-central1-docker.pkg.dev/august-water-417802/my-docker-repo/df-tmpl-image:latest', '.']
+#  id: 'Build Docker Image'
 
   # images:
   # - 'us-central1-docker.pkg.dev/<your_project_id>/gke-repo/quickstart-image'
 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/august-water-417802/my-docker-repo/df-tmpl-image:latest' ]
-  id: 'Push Docker Image'
+#- name: 'gcr.io/cloud-builders/docker'
+#  args: ['push', 'us-central1-docker.pkg.dev/august-water-417802/my-docker-repo/df-tmpl-image:latest' ]
+#  id: 'Push Docker Image'
 
 #- name: 'google/cloud-sdk:latest'
 #  entrypoint: 'sh'
