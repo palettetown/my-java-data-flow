@@ -32,9 +32,22 @@ steps:
 #      - '--member=principalSet://iam.googleapis.com/projects/198122355685/locations/global/workloadIdentityPools/githubactions/attribute.repository/palettetown/tf_mvn_test_gg'
 
 #added wif principal to service account
+#- name: 'gcr.io/cloud-builders/gcloud'
+#  entrypoint: 'bash'
+#  args: ['./my_script.sh']
+
 - name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: 'bash'
-  args: ['./my_script.sh']
+  args:
+    - 'dataflow'
+    - 'flex-template'
+    - 'build'
+    - 'gs://bkt-tf-chrisyue3/df-tmpl-java.json'
+    - '--image-gcr-path "us-central1-docker.pkg.dev/august-water-417802/my-docker-repo/df-tmpl-image:latest"'
+    - '--sdk-language "JAVA"'
+    - '--flex-template-base-image JAVA17'
+    - '--metadata-file "metadata.json"'
+    - '--jar "./flex-template-getting-started-1.0.jar"'
+    - '--env FLEX_TEMPLATE_JAVA_MAIN_CLASS="com.example.dataflow.FlexTemplateGettingStarted"'
 
 options:
   logging: CLOUD_LOGGING_ONLY
