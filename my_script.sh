@@ -3,4 +3,5 @@ gcloud dataflow flex-template build gs://bkt-tf-chrisyue3/df-tmpl-java.json \
  --sdk-language "JAVA" \
  --flex-template-base-image JAVA17 \
  --metadata-file "metadata.json" \
+ --jar "/usr/src/app/app.jar" \
  --env FLEX_TEMPLATE_JAVA_MAIN_CLASS="com.example.dataflow.FlexTemplateGettingStarted"
