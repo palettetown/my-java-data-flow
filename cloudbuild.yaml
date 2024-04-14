@@ -1,0 +1,41 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/august-water-417802/my-docker-repo/df-tmpl-image:latest', '.']
+  id: 'Build Docker Image'
+
+  # images:
+  # - 'us-central1-docker.pkg.dev/<your_project_id>/gke-repo/quickstart-image'
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/august-water-417802/my-docker-repo/df-tmpl-image:latest' ]
+  id: 'Push Docker Image'
+
+#- name: 'google/cloud-sdk:latest'
+#  entrypoint: 'sh'
+#  args:
+#  - -xe
+#  - -c
+#  - |
+#    gcloud deploy apply --file deploy/pipeline.yaml --region=us-central1
+#    gcloud deploy apply --file deploy/dev.yaml --region=us-central1
+#    gcloud deploy releases create 'app-release-${SHORT_SHA}' --delivery-pipeline=run-cicd-pipeline --region=us-central1 --skaffold-file=skaffold.yaml
+
+#steps:
+#  - name: 'gcr.io/cloud-builders/gcloud'
+#    args:
+#      - 'iam'
+#      - 'service-accounts'
+#      - 'add-iam-policy-binding'
+#      - 'projects/august-water-417802/serviceAccounts/proj1servacc@august-water-417802.iam.gserviceaccount.com'
+#      - '--project=august-water-417802'
+#      - '--role=roles/iam.workloadIdentityUser'
+#      - '--member=principalSet://iam.googleapis.com/projects/198122355685/locations/global/workloadIdentityPools/githubactions/attribute.repository/palettetown/tf_mvn_test_gg'
+
+#added wif principal to service account
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args: ['./my_script.sh']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
