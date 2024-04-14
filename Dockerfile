@@ -28,7 +28,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /usr/src/app
 
 # Copy the JAR file from the build stage
-COPY --from=build /usr/src/app/target/flex-template-getting-started-1.0.jar
+COPY --from=build /usr/src/app/target/flex-template-getting-started-1.0.jar app.jar
 
 # Command to run the application
 CMD ["java", "-jar", "app.jar"]
