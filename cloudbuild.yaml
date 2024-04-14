@@ -6,10 +6,6 @@ steps:
   # images:
   # - 'us-central1-docker.pkg.dev/<your_project_id>/gke-repo/quickstart-image'
 
-  # Step 2: Run a Docker container based on the built image and copy the JAR file to the workspace
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['run', '--rm', '-v', '${BUILD_WORKSPACE}:/workspace', 'us-central1-docker.pkg.dev/august-water-417802/my-docker-repo/df-tmpl-image:latest', 'cp', '/usr/src/app/target/flex-template-getting-started-1.0.jar', '/workspace']
-
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/august-water-417802/my-docker-repo/df-tmpl-image:latest' ]
   id: 'Push Docker Image'
