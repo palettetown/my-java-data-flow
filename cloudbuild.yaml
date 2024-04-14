@@ -32,9 +32,9 @@ steps:
 #      - '--member=principalSet://iam.googleapis.com/projects/198122355685/locations/global/workloadIdentityPools/githubactions/attribute.repository/palettetown/tf_mvn_test_gg'
 
 #added wif principal to service account
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: 'bash'
-    args: ['./my_script.sh']
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args: ['./my_script.sh']
 
 options:
   logging: CLOUD_LOGGING_ONLY
